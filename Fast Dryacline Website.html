@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fast Dryacline & Dhulai Press - Rewa. Doorstep Laundry, Dry Cleaning, Press & Silai Services.">
+  <title>Fast Dryacline & Dhulai Press | Rewa</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#074836',
+              dark: '#042e23',
+              light: '#0f634b',
+              accent: '#f59e0b',
+              bg: '#f4f8f6'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f4f8f6; }
+    .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #074836; border-radius: 4px; }
+  </style>
+</head>
+<body class="text-slate-800 flex flex-col min-h-screen">
+
+  <!-- TOP NOTICE BAR -->
+  <div class="bg-amber-500 text-slate-900 text-xs sm:text-sm font-bold py-2 px-4 text-center flex justify-between items-center wrap shadow-inner">
+    <div class="w-full text-center">
+      <i class="fa-solid fa-truck-fast mr-2"></i> Free Home Pickup & Delivery in Rewa! Call: <a href="tel:+916232886570" class="underline hover:text-white">+91 6232886570</a>
+    </div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-brand-dark text-white shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
+        <div class="w-10 h-10 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center font-black text-xl shadow-md">
+          <i class="fa-solid fa-shirt"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight block leading-none">Fast <span class="text-brand-accent">Dryacline</span></span>
+          <span class="text-[10px] text-emerald-200 tracking-wider uppercase font-semibold">Dhulai • Press • Dry Cleaning</span>
+        </div>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold">
+        <button onclick="switchTab('home')" class="nav-btn hover:text-brand-accent transition" id="nav-home">Home</button>
+        <button onclick="switchTab('clothes')" class="nav-btn hover:text-brand-accent transition" id="nav-clothes">Clothes & Rates</button>
+        <button onclick="switchTab('booking')" class="nav-btn hover:text-brand-accent transition" id="nav-booking">Book Pickup</button>
+        <button onclick="switchTab('reviews')" class="nav-btn hover:text-brand-accent transition" id="nav-reviews">Reviews</button>
+        <button onclick="switchTab('customer')" class="nav-btn bg-emerald-800 hover:bg-emerald-700 text-white px-3 py-1.5 rounded-lg transition flex items-center gap-2" id="nav-customer">
+          <i class="fa-solid fa-user text-brand-accent"></i> Customer Portal
+        </button>
+        <button onclick="switchTab('admin')" class="nav-btn bg-brand-accent hover:bg-amber-600 text-brand-dark px-3 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5" id="nav-admin">
+          <i class="fa-solid fa-user-shield"></i> Admin Panel
+        </button>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-white focus:outline-none">
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-brand border-t border-emerald-800 px-4 pt-2 pb-4 space-y-2 text-sm">
+      <button onclick="switchTab('home'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-brand-accent">🏠 Home</button>
+      <button onclick="switchTab('clothes'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-brand-accent">👔 Clothes & Rates</button>
+      <button onclick="switchTab('booking'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-brand-accent">🛵 Book Pickup</button>
+      <button onclick="switchTab('reviews'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-brand-accent">⭐ Customer Reviews</button>
+      <button onclick="switchTab('customer'); toggleMobileMenu()" class="block w-full text-left py-2 text-emerald-300 font-bold">👤 Customer Portal / Status</button>
+      <button onclick="switchTab('admin'); toggleMobileMenu()" class="block w-full text-left py-2 text-brand-accent font-bold">🔐 Admin Login & Orders</button>
+    </div>
+  </header>
+
+  <!-- MAIN DYNAMIC CONTENT CONTAINER -->
+  <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6">
+
+    <!-- ================= SECTION 1: HOME ================= -->
+    <section id="sec-home" class="space-y-10">
+      
+      <!-- Hero Banner -->
+      <div class="bg-gradient-to-r from-brand-dark via-brand to-emerald-900 rounded-3xl p-6 sm:p-12 text-white shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="space-y-4 max-w-xl z-10">
+          <span class="bg-brand-accent text-brand-dark text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            ⚡ Fast Doorstep DryCleaning Rewa
+          </span>
+          <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+            Aapke Kapdon Ki Sahi Dhulai Aur <span class="text-brand-accent">Dry Cleaning</span>
+          </h1>
+          <p class="text-emerald-100 text-sm sm:text-base">
+            Ghar baithe kapde collect karwayein. Premium Drycleaning, Steam Ironing, Coat-Pant & Saree Care With Free Home Delivery in Rewa!
+          </p>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <button onclick="switchTab('booking')" class="bg-brand-accent hover:bg-amber-500 text-brand-dark font-extrabold px-6 py-3 rounded-xl shadow-lg transition flex items-center gap-2">
+              <i class="fa-solid fa-truck-pickup"></i> Book Free Pickup
+            </button>
+            <a href="tel:+916232886570" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-5 py-3 rounded-xl backdrop-blur-md transition flex items-center gap-2 border border-white/20">
+              <i class="fa-solid fa-phone text-emerald-300"></i> Call 6232886570
+            </a>
+          </div>
+        </div>
+
+        <div class="relative z-10 w-full md:w-80 bg-white/10 p-5 rounded-2xl backdrop-blur-md border border-white/20 text-center space-y-3">
+          <div class="w-16 h-16 bg-brand-accent text-brand-dark rounded-full mx-auto flex items-center justify-center text-2xl font-bold shadow-md">
+            <i class="fa-solid fa-hand-holding-hand"></i>
+          </div>
+          <h3 class="font-bold text-lg">Doorstep Pickup Service</h3>
+          <p class="text-xs text-emerald-100">Hum aapke ghar se kapde lenge aur dry clean karke wapas pahunchayenge.</p>
+          <div class="pt-2 text-xs font-semibold text-amber-300 border-t border-white/10 flex justify-around">
+            <span>✓ Safe Wash</span>
+            <span>✓ Low Rate</span>
+            <span>✓ On Time</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Feature Cards -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition text-center space-y-2">
+          <div class="w-12 h-12 bg-emerald-100 text-brand text-2xl rounded-xl mx-auto flex items-center justify-center">
+            <i class="fa-solid fa-soap"></i>
+          </div>
+          <h4 class="font-bold text-sm">Dry Cleaning</h4>
+          <p class="text-xs text-slate-500">Suits, Sarees, Sherwanis & Jackets</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition text-center space-y-2">
+          <div class="w-12 h-12 bg-amber-100 text-amber-700 text-2xl rounded-xl mx-auto flex items-center justify-center">
+            <i class="fa-solid fa-square-poll-vertical"></i>
+          </div>
+          <h4 class="font-bold text-sm">Steam Press</h4>
+          <p class="text-xs text-slate-500">Crease-free premium ironing</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition text-center space-y-2">
+          <div class="w-12 h-12 bg-blue-100 text-blue-700 text-2xl rounded-xl mx-auto flex items-center justify-center">
+            <i class="fa-solid fa-mattress-pillow"></i>
+          </div>
+          <h4 class="font-bold text-sm">Kambal & Blanket</h4>
+          <p class="text-xs text-slate-500">Deep wash for heavy quilts</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition text-center space-y-2">
+          <div class="w-12 h-12 bg-purple-100 text-purple-700 text-2xl rounded-xl mx-auto flex items-center justify-center">
+            <i class="fa-solid fa-scissors"></i>
+          </div>
+          <h4 class="font-bold text-sm">Silai & Alteration</h4>
+          <p class="text-xs text-slate-500">Fitting and stitching fixes</p>
+        </div>
+      </div>
+
+      <!-- Shop Location & Address -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2">
+          <span class="text-xs font-bold text-brand uppercase tracking-wider">📍 Hamara Pata (Shop Address)</span>
+          <h3 class="text-xl font-bold text-slate-800">Fast Dryacline & Dhulai Press - Rewa</h3>
+          <p class="text-sm text-slate-600">
+            Near Tiwari Hotel, Balaji Kiran Store ke paas, Rewa, Madhya Pradesh.
+          </p>
+          <p class="text-xs text-slate-500 font-semibold">
+            📞 Phone: +91 6232886570 | Timing: 8:00 AM - 9:00 PM
+          </p>
+        </div>
+        <div class="flex gap-3 w-full md:w-auto">
+          <a href="https://www.google.com/maps/search/?api=1&query=Fast+Dryacline+Rewa" target="_blank" class="flex-1 md:flex-initial text-center bg-emerald-50 text-brand border border-brand/20 font-bold px-4 py-2.5 rounded-xl text-sm hover:bg-emerald-100 transition">
+            <i class="fa-solid fa-map-location-dot mr-1"></i> Google Map
+          </a>
+          <a href="https://wa.me/916232886570?text=Hello%20Fast%20Dryacline,%20mujhe%20kapde%20dry%20clean%20karwane%20hain" target="_blank" class="flex-1 md:flex-initial text-center bg-green-600 text-white font-bold px-4 py-2.5 rounded-xl text-sm hover:bg-green-700 transition">
+            <i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ================= SECTION 2: CLOTHES & SHOWCASE ================= -->
+    <section id="sec-clothes" class="hidden space-y-6">
+      <div class="text-center space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark">Types of Clothes & Rate List</h2>
+        <p class="text-sm text-slate-600 max-w-xl mx-auto">Chunein apne kapde aur Rate dekhein. Aap direct yahan se order mein items add kar sakte hain.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="clothes-grid">
+        <!-- Dynamic JS generation for Clothes items -->
+      </div>
+    </section>
+
+
+    <!-- ================= SECTION 3: BOOKING & ONLINE PAYMENT ================= -->
+    <section id="sec-booking" class="hidden max-w-4xl mx-auto space-y-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl space-y-6">
+        
+        <div class="border-b border-slate-100 pb-4">
+          <h2 class="text-2xl font-extrabold text-brand-dark flex items-center gap-2">
+            <i class="fa-solid fa-truck-ramp-box text-brand-accent"></i> Schedule Doorstep Pickup
+          </h2>
+          <p class="text-xs text-slate-500 mt-1">Ghar se kapde dene ke liye apni details bharein</p>
+        </div>
+
+        <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Customer Name (Naam) *</label>
+              <input type="text" id="cust-name" required placeholder="Aapka naam" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand focus:outline-none text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Mobile Number *</label>
+              <input type="tel" id="cust-phone" required placeholder="10-digit mobile number" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand focus:outline-none text-sm">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Pickup Address in Rewa *</label>
+            <textarea id="cust-address" required rows="2" placeholder="House no, Area, Landmark (e.g. Near Tiwari Hotel, Rewa)" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand focus:outline-none text-sm"></textarea>
+          </div>
+
+          <!-- Select Clothes Quantities -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-2">Select Clothes & Service Quantity</label>
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3 max-h-60 overflow-y-auto custom-scrollbar" id="booking-items-list">
+              <!-- JS Populated Clothes items with counters -->
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Pickup Date</label>
+              <input type="date" id="cust-date" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand focus:outline-none text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Service Type</label>
+              <select id="cust-service" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand focus:outline-none text-sm">
+                <option value="Dry Cleaning">Dry Cleaning (Standard)</option>
+                <option value="Wash & Press">Washing + Steam Ironing</option>
+                <option value="Only Steam Ironing">Only Steam Ironing</option>
+                <option value="Alteration & Silai">Silai / Repairing</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Price Calculation Summary Box -->
+          <div class="bg-emerald-950 text-white p-5 rounded-2xl space-y-2">
+            <div class="flex justify-between text-xs text-emerald-200">
+              <span>Items Total Price:</span>
+              <span id="summary-subtotal">₹0</span>
+            </div>
+            <div class="flex justify-between text-xs text-emerald-200">
+              <span>Doorstep Pickup Charge:</span>
+              <span class="text-emerald-400 font-bold">FREE (Rewa City)</span>
+            </div>
+            <div class="border-t border-emerald-800 pt-2 flex justify-between font-bold text-lg text-amber-400">
+              <span>Total Payable Amount:</span>
+              <span id="summary-total">₹0</span>
+            </div>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button type="submit" class="flex-1 bg-brand hover:bg-brand-light text-white font-bold py-3 px-6 rounded-xl shadow-lg transition">
+              <i class="fa-solid fa-check-circle mr-1"></i> Place Order (Pay Later)
+            </button>
+            <button type="button" onclick="openPaymentModal()" class="flex-1 bg-brand-accent hover:bg-amber-500 text-brand-dark font-extrabold py-3 px-6 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-qrcode"></i> Pay Online via UPI / QR
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+
+    <!-- ================= SECTION 4: REVIEWS ================= -->
+    <section id="sec-reviews" class="hidden space-y-6 max-w-4xl mx-auto">
+      <div class="text-center space-y-2">
+        <h2 class="text-2xl font-extrabold text-brand-dark">Grahak Reviews & Ratings</h2>
+        <p class="text-xs text-slate-500">Rewa ke hamare sabhi santusht grahak ke anubhav</p>
+      </div>
+
+      <!-- Add Review Form -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        <h3 class="font-bold text-slate-800 text-sm">Apna Review Likhein</h3>
+        <form onsubmit="submitReview(event)" class="space-y-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <input type="text" id="rev-name" placeholder="Aapka Naam" required class="px-3 py-2 text-sm border rounded-xl w-full">
+            <select id="rev-rating" class="px-3 py-2 text-sm border rounded-xl w-full">
+              <option value="5">⭐⭐⭐⭐⭐ (5/5 Excellent)</option>
+              <option value="4">⭐⭐⭐⭐ (4/5 Very Good)</option>
+              <option value="3">⭐⭐⭐ (3/5 Good)</option>
+            </select>
+          </div>
+          <textarea id="rev-comment" rows="2" placeholder="Service kaisi lagi? (e.g., Coat ki drycleaning bahut acchi hui)" required class="px-3 py-2 text-sm border rounded-xl w-full"></textarea>
+          <button type="submit" class="bg-brand text-white font-bold text-xs px-5 py-2.5 rounded-xl hover:bg-brand-light transition">
+            Submit Review
+          </button>
+        </form>
+      </div>
+
+      <!-- Reviews Feed -->
+      <div class="space-y-4" id="reviews-container">
+        <!-- Rendered Reviews via JS -->
+      </div>
+    </section>
+
+
+    <!-- ================= SECTION 5: CUSTOMER PORTAL ================= -->
+    <section id="sec-customer" class="hidden max-w-3xl mx-auto space-y-6">
+      
+      <!-- Login Toggle Card -->
+      <div id="cust-login-card" class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl space-y-4 text-center">
+        <div class="w-16 h-16 bg-emerald-100 text-brand rounded-full mx-auto flex items-center justify-center text-2xl font-bold">
+          <i class="fa-solid fa-user-check"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-brand-dark">Customer Login & Live Order Track</h2>
+        <p class="text-xs text-slate-500">Apna Mobile Number daalkar apne dry cleaning order ka status dekhein.</p>
+        
+        <div class="max-w-md mx-auto space-y-3 pt-2">
+          <input type="tel" id="cust-login-phone" placeholder="Enter Mobile Number" class="w-full text-center px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand focus:outline-none font-bold text-lg tracking-wider">
+          <button onclick="handleCustomerLogin()" class="w-full bg-brand hover:bg-brand-light text-white font-bold py-3 rounded-xl shadow-md transition">
+            Check My Clothes Status
+          </button>
+        </div>
+      </div>
+
+      <!-- Active Orders View (Shown after login) -->
+      <div id="cust-dashboard" class="hidden space-y-6">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex justify-between items-center">
+          <div>
+            <h3 class="font-bold text-lg text-slate-800" id="welcome-cust-name">Welcome Customer</h3>
+            <p class="text-xs text-slate-500" id="welcome-cust-phone">Phone: -</p>
+          </div>
+          <button onclick="logoutCustomer()" class="text-xs bg-slate-100 hover:bg-slate-200 font-bold text-slate-600 px-3 py-1.5 rounded-lg">
+            Logout
+          </button>
+        </div>
+
+        <!-- Orders Tracker List -->
+        <div class="space-y-4" id="cust-orders-list">
+          <!-- JS Rendered Orders -->
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ================= SECTION 6: ADMIN DASHBOARD ================= -->
+    <section id="sec-admin" class="hidden space-y-6 max-w-5xl mx-auto">
+      
+      <!-- Admin Login Box -->
+      <div id="admin-login-card" class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl max-w-md mx-auto text-center space-y-4">
+        <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full mx-auto flex items-center justify-center text-2xl font-bold">
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <h2 class="text-2xl font-extrabold text-brand-dark">Shop Admin Login</h2>
+        <p class="text-xs text-slate-500">Fast Dryacline Shop Owner Panel</p>
+        <div class="space-y-3">
+          <input type="password" id="admin-pass" placeholder="Enter Admin Pin (Default: 1234)" class="w-full text-center px-4 py-2.5 border rounded-xl focus:outline-none">
+          <button onclick="handleAdminLogin()" class="w-full bg-brand-accent hover:bg-amber-600 text-brand-dark font-extrabold py-2.5 rounded-xl transition">
+            Login to Admin Panel
+          </button>
+        </div>
+      </div>
+
+      <!-- Admin Panel View -->
+      <div id="admin-dashboard" class="hidden space-y-6">
+        
+        <!-- Stats Summary -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="bg-white p-4 rounded-2xl border shadow-sm">
+            <p class="text-xs font-bold text-slate-400">Total Orders</p>
+            <p class="text-2xl font-extrabold text-brand" id="stat-total-orders">0</p>
+          </div>
+          <div class="bg-white p-4 rounded-2xl border shadow-sm">
+            <p class="text-xs font-bold text-slate-400">Pending Cleaning</p>
+            <p class="text-2xl font-extrabold text-amber-500" id="stat-pending">0</p>
+          </div>
+          <div class="bg-white p-4 rounded-2xl border shadow-sm">
+            <p class="text-xs font-bold text-slate-400">Completed</p>
+            <p class="text-2xl font-extrabold text-green-600" id="stat-completed">0</p>
+          </div>
+          <div class="bg-white p-4 rounded-2xl border shadow-sm">
+            <p class="text-xs font-bold text-slate-400">Total Revenue</p>
+            <p class="text-2xl font-extrabold text-brand-dark" id="stat-revenue">₹0</p>
+          </div>
+        </div>
+
+        <!-- Orders Management Table -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
+          <div class="flex justify-between items-center">
+            <h3 class="font-extrabold text-slate-800">All Customer Bookings</h3>
+            <button onclick="logoutAdmin()" class="text-xs bg-slate-100 hover:bg-slate-200 font-bold px-3 py-1.5 rounded-lg">Admin Logout</button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-100 text-slate-600 font-bold uppercase">
+                <tr>
+                  <th class="p-3">Order ID</th>
+                  <th class="p-3">Customer Info</th>
+                  <th class="p-3">Clothes & Items</th>
+                  <th class="p-3">Total Amount</th>
+                  <th class="p-3">Status</th>
+                  <th class="p-3">Action</th>
+                </tr>
+              </thead>
+              <tbody id="admin-orders-tbody" class="divide-y divide-slate-100">
+                <!-- JS Populated Orders -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= ONLINE PAYMENT MODAL ================= -->
+  <div id="payment-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center space-y-4 shadow-2xl relative">
+      <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
+
+      <div class="space-y-1">
+        <span class="bg-emerald-100 text-brand text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Instant Payment Transfer</span>
+        <h3 class="text-xl font-extrabold text-slate-800">Scan QR Code to Pay</h3>
+        <p class="text-xs text-slate-500">Pay via PhonePe, Google Pay, Paytm or UPI</p>
+      </div>
+
+      <!-- Generated Simulated QR Code -->
+      <div class="bg-slate-50 p-4 border border-slate-200 rounded-2xl inline-block my-2">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi://pay?pa=6232886570@upi&pn=Fast%20Dryacline" alt="UPI QR Code" class="w-44 h-44 mx-auto rounded-lg shadow-sm">
+        <p class="text-xs font-bold text-brand mt-2">UPI ID: 6232886570@upi</p>
+      </div>
+
+      <div class="text-left bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+        <p class="font-bold">Step 1: Scan QR Code & Pay</p>
+        <p class="text-[11px]">Payable Amount: <span id="payment-modal-amount" class="font-bold text-brand">₹0</span></p>
+        <p class="text-[11px]">Payment karke niche UTR / Transaction No daalein.</p>
+      </div>
+
+      <div class="space-y-2">
+        <input type="text" id="pay-utr" placeholder="Enter Transaction / UTR No." class="w-full text-center px-3 py-2 border rounded-xl text-xs font-mono">
+        <button onclick="confirmUpiPayment()" class="w-full bg-brand-accent hover:bg-amber-600 text-brand-dark font-extrabold py-2.5 rounded-xl text-sm transition">
+          Confirm Payment & Book
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-dark text-slate-300 py-8 border-t border-emerald-900 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+      <div class="space-y-2">
+        <h4 class="text-white font-extrabold text-sm">Fast Dryacline & Dhulai Press</h4>
+        <p class="text-emerald-200/80">
+          Rewa's trusted laundry and dry cleaning shop. Safai aur kapdon ki dekhbhaal hamari pehli pehchan.
+        </p>
+      </div>
+      <div class="space-y-2">
+        <h4 class="text-white font-extrabold text-sm">Services Provided</h4>
+        <p>• Drycleaning (Coats, Sarees, Suits)</p>
+        <p>• Heavy Blanket & Kambal Dhulai</p>
+        <p>• Steam Pressing & Silai Alteration</p>
+      </div>
+      <div class="space-y-2">
+        <h4 class="text-white font-extrabold text-sm">Contact Shop</h4>
+        <p>📍 Near Tiwari Hotel, Balaji Kiran Store ke paas, Rewa, MP</p>
+        <p>📞 Call: <a href="tel:+916232886570" class="text-amber-400 font-bold">+91 6232886570</a></p>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pt-4 border-t border-emerald-900/50 text-center text-[11px] text-slate-400">
+      © <span id="year"></span> Fast Dryacline Rewa. All Rights Reserved.
+    </div>
+  </footer>
+
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script>
+    // --- APP DATA STATE ---
+    const clothesData = [
+      { id: 'c1', name: 'Coat-Pant (Suit)', price: 180, icon: '🤵', category: 'Drycleaning', img: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=500&q=80' },
+      { id: 'c2', name: 'Heavy Saree', price: 150, icon: '🥻', category: 'Drycleaning', img: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500&q=80' },
+      { id: 'c3', name: 'Sherwani Set', price: 250, icon: '🧥', category: 'Drycleaning', img: 'https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?w=500&q=80' },
+      { id: 'c4', name: 'Shirt / Trouser Wash & Press', price: 40, icon: '👔', category: 'Laundry', img: 'https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?w=500&q=80' },
+      { id: 'c5', name: 'Blanket / Kambal', price: 200, icon: '🛏️', category: 'Heavy Cleaning', img: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=500&q=80' },
+      { id: 'c6', name: 'Frock / Lehenga', price: 220, icon: '👗', category: 'Drycleaning', img: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=500&q=80' },
+      { id: 'c7', name: 'Blazer / Jacket', price: 120, icon: '🧥', category: 'Drycleaning', img: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&q=80' },
+      { id: 'c8', name: 'Steam Ironing (Single Item)', price: 15, icon: '♨️', category: 'Pressing', img: 'https://images.unsplash.com/photo-1489274495757-95c7c837b101?w=500&q=80' }
+    ];
+
+    let selectedQuantities = {};
+    clothesData.forEach(c => selectedQuantities[c.id] = 0);
+
+    // Initial Mock Orders
+    let appOrders = [
+      {
+        id: 'ORD-8921',
+        name: 'Ramesh Sharma',
+        phone: '9876543210',
+        address: 'Civil Lines, Near College, Rewa',
+        items: 'Coat-Pant (x1), Shirt (x2)',
+        amount: 260,
+        status: 'In Cleaning',
+        date: '2026-10-22'
+      },
+      {
+        id: 'ORD-8922',
+        name: 'Pooja Tiwari',
+        phone: '9123456789',
+        address: 'Near Tiwari Hotel, Rewa',
+        items: 'Heavy Saree (x2)',
+        amount: 300,
+        status: 'Picked Up',
+        date: '2026-10-22'
+      }
+    ];
+
+    let appReviews = [
+      { name: 'Amit Singh (Rewa)', rating: 5, comment: 'Coat-pant ki dry cleaning bahut achi hui. Bilkul nayi jaisi shine aa gayi.' },
+      { name: 'Sanjay Mishra', rating: 5, comment: 'Ghar se kapde le gaye aur time pe deliver kar diya. Best laundry in Rewa!' }
+    ];
+
+    // --- NAVIGATION SWITCHER ---
+    function switchTab(tabId) {
+      const tabs = ['home', 'clothes', 'booking', 'reviews', 'customer', 'admin'];
+      tabs.forEach(t => {
+        const sec = document.getElementById(`sec-${t}`);
+        const navBtn = document.getElementById(`nav-${t}`);
+        if (sec) sec.classList.add('hidden');
+        if (navBtn) navBtn.classList.remove('text-brand-accent');
+      });
+
+      const activeSec = document.getElementById(`sec-${tabId}`);
+      const activeNav = document.getElementById(`nav-${tabId}`);
+      if (activeSec) activeSec.classList.remove('hidden');
+      if (activeNav) activeNav.classList.add('text-brand-accent');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // --- RENDER CLOTHES CATALOGUE ---
+    function renderClothesCatalogue() {
+      const grid = document.getElementById('clothes-grid');
+      const bookingList = document.getElementById('booking-items-list');
+      if (!grid) return;
+
+      grid.innerHTML = clothesData.map(item => `
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div class="relative h-44 overflow-hidden bg-slate-100">
+            <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+            <span class="absolute top-3 right-3 bg-brand-dark/80 text-brand-accent backdrop-blur-md text-xs font-extrabold px-3 py-1 rounded-full">
+              ₹${item.price}
+            </span>
+          </div>
+          <div class="p-4 space-y-2 flex-grow">
+            <span class="text-[10px] uppercase tracking-wider text-brand font-bold bg-emerald-50 px-2 py-0.5 rounded">
+              ${item.category}
+            </span>
+            <h3 class="font-extrabold text-slate-800 text-base">${item.icon} ${item.name}</h3>
+            <p class="text-xs text-slate-500">Professional Wash & Steam DryCare</p>
+          </div>
+          <div class="p-4 pt-0">
+            <button onclick="quickAddToOrder('${item.id}')" class="w-full bg-slate-100 hover:bg-brand hover:text-white text-slate-700 font-bold text-xs py-2.5 rounded-xl transition">
+              + Add to Booking
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      // Populate booking form items
+      bookingList.innerHTML = clothesData.map(item => `
+        <div class="flex items-center justify-between bg-white p-2.5 rounded-xl border border-slate-100 text-xs">
+          <div>
+            <span class="font-bold text-slate-800">${item.icon} ${item.name}</span>
+            <span class="text-brand font-bold ml-2">₹${item.price}</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <button type="button" onclick="updateQty('${item.id}', -1)" class="w-7 h-7 bg-slate-100 rounded-lg text-slate-700 font-bold hover:bg-slate-200">-</button>
+            <span id="qty-${item.id}" class="w-6 text-center font-bold">0</span>
+            <button type="button" onclick="updateQty('${item.id}', 1)" class="w-7 h-7 bg-brand text-white rounded-lg font-bold hover:bg-brand-light">+</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function updateQty(id, delta) {
+      selectedQuantities[id] = Math.max(0, (selectedQuantities[id] || 0) + delta);
+      const qtyElem = document.getElementById(`qty-${id}`);
+      if (qtyElem) qtyElem.textContent = selectedQuantities[id];
+      recalculateTotal();
+    }
+
+    function quickAddToOrder(id) {
+      updateQty(id, 1);
+      switchTab('booking');
+    }
+
+    function recalculateTotal() {
+      let subtotal = 0;
+      clothesData.forEach(item => {
+        subtotal += (selectedQuantities[item.id] || 0) * item.price;
+      });
+
+      document.getElementById('summary-subtotal').textContent = `₹${subtotal}`;
+      document.getElementById('summary-total').textContent = `₹${subtotal}`;
+      document.getElementById('payment-modal-amount').textContent = `₹${subtotal}`;
+      return subtotal;
+    }
+
+    // --- BOOKING SUBMISSION ---
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('cust-name').value;
+      const phone = document.getElementById('cust-phone').value;
+      const address = document.getElementById('cust-address').value;
+      const date = document.getElementById('cust-date').value;
+      const total = recalculateTotal();
+
+      if (total === 0) {
+        alert('Kripya kam se kam ek kapda select karein!');
+        return;
+      }
+
+      // Collect item list string
+      let itemsListArr = [];
+      clothesData.forEach(item => {
+        if (selectedQuantities[item.id] > 0) {
+          itemsListArr.push(`${item.name} (x${selectedQuantities[item.id]})`);
+        }
+      });
+
+      const newOrder = {
+        id: 'ORD-' + Math.floor(1000 + Math.random() * 9000),
+        name,
+        phone,
+        address,
+        items: itemsListArr.join(', '),
+        amount: total,
+        status: 'Order Placed',
+        date: date || new Date().toISOString().split('T')[0]
+      };
+
+      appOrders.unshift(newOrder);
+      alert(`✅ Booking Successful!\nOrder ID: ${newOrder.id}\nHum aapse phone par jaldi sampark karenge.`);
+      
+      // Auto login customer
+      document.getElementById('cust-login-phone').value = phone;
+      handleCustomerLogin();
+      switchTab('customer');
+    }
+
+    // --- PAYMENT MODAL ---
+    function openPaymentModal() {
+      const total = recalculateTotal();
+      if (total === 0) {
+        alert('Pehle kapde select karein!');
+        return;
+      }
+      document.getElementById('payment-modal').classList.remove('hidden');
+    }
+
+    function closePaymentModal() {
+      document.getElementById('payment-modal').classList.add('hidden');
+    }
+
+    function confirmUpiPayment() {
+      const utr = document.getElementById('pay-utr').value;
+      if (!utr || utr.length < 4) {
+        alert('Kripya valid Transaction / UTR Number bharein.');
+        return;
+      }
+      closePaymentModal();
+      document.getElementById('booking-form').dispatchEvent(new Event('submit'));
+    }
+
+    // --- REVIEWS ---
+    function renderReviews() {
+      const container = document.getElementById('reviews-container');
+      container.innerHTML = appReviews.map(r => `
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm space-y-1">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-slate-800 text-sm">${r.name}</span>
+            <span class="text-amber-500 text-xs">{"⭐".repeat(r.rating)}</span>
+          </div>
+          <p class="text-xs text-slate-600">${r.comment}</p>
+        </div>
+      `).join('');
+    }
+
+    function submitReview(e) {
+      e.preventDefault();
+      const name = document.getElementById('rev-name').value;
+      const rating = parseInt(document.getElementById('rev-rating').value);
+      const comment = document.getElementById('rev-comment').value;
+
+      appReviews.unshift({ name, rating, comment });
+      renderReviews();
+      alert('Thank you! Aapka review jod diya gaya hai.');
+      e.target.reset();
+    }
+
+    // --- CUSTOMER PORTAL ---
+    function handleCustomerLogin() {
+      const phone = document.getElementById('cust-login-phone').value;
+      if (!phone) {
+        alert('Kripya Mobile Number daalein');
+        return;
+      }
+
+      document.getElementById('cust-login-card').classList.add('hidden');
+      document.getElementById('cust-dashboard').classList.remove('hidden');
+
+      document.getElementById('welcome-cust-phone').textContent = `Mobile: ${phone}`;
+      
+      const userOrders = appOrders.filter(o => o.phone.includes(phone) || phone.includes(o.phone));
+      document.getElementById('welcome-cust-name').textContent = userOrders.length > 0 ? userOrders[0].name : 'Customer';
+
+      const ordersListElem = document.getElementById('cust-orders-list');
+      
+      if (userOrders.length === 0) {
+        ordersListElem.innerHTML = `
+          <div class="bg-white p-6 rounded-2xl text-center space-y-2">
+            <p class="text-slate-500 text-xs">Is mobile number se koi active order nahi mila.</p>
+            <button onclick="switchTab('booking')" class="text-xs bg-brand text-white px-4 py-2 rounded-xl font-bold">Book New Order</button>
+          </div>
+        `;
+        return;
+      }
+
+      ordersListElem.innerHTML = userOrders.map(ord => `
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+            <div>
+              <span class="text-xs font-mono text-slate-400">Order #${ord.id}</span>
+              <h4 class="font-extrabold text-slate-800 text-sm">${ord.items}</h4>
+            </div>
+            <span class="bg-emerald-100 text-brand font-bold text-xs px-3 py-1 rounded-full">₹${ord.amount}</span>
+          </div>
+
+          <!-- Status Pipeline -->
+          <div class="space-y-2">
+            <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Order Status Pipeline</p>
+            <div class="grid grid-cols-4 gap-1 text-center text-[10px] font-bold">
+              <div class="p-1 rounded ${ord.status === 'Order Placed' ? 'bg-amber-500 text-white' : 'bg-slate-100 text-slate-400'}">Placed</div>
+              <div class="p-1 rounded ${ord.status === 'Picked Up' ? 'bg-amber-500 text-white' : 'bg-slate-100 text-slate-400'}">Picked Up</div>
+              <div class="p-1 rounded ${ord.status === 'In Cleaning' ? 'bg-amber-500 text-white' : 'bg-slate-100 text-slate-400'}">In Cleaning</div>
+              <div class="p-1 rounded ${ord.status === 'Delivered' ? 'bg-green-600 text-white' : 'bg-slate-100 text-slate-400'}">Delivered</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function logoutCustomer() {
+      document.getElementById('cust-dashboard').classList.add('hidden');
+      document.getElementById('cust-login-card').classList.remove('hidden');
+    }
+
+    // --- ADMIN DASHBOARD ---
+    function handleAdminLogin() {
+      const pass = document.getElementById('admin-pass').value;
+      if (pass === '1234') {
+        document.getElementById('admin-login-card').classList.add('hidden');
+        document.getElementById('admin-dashboard').classList.remove('hidden');
+        renderAdminDashboard();
+      } else {
+        alert('Wrong Password! (Default is 1234)');
+      }
+    }
+
+    function renderAdminDashboard() {
+      // Stats calculation
+      document.getElementById('stat-total-orders').textContent = appOrders.length;
+      document.getElementById('stat-pending').textContent = appOrders.filter(o => o.status !== 'Delivered').length;
+      document.getElementById('stat-completed').textContent = appOrders.filter(o => o.status === 'Delivered').length;
+      
+      const rev = appOrders.reduce((acc, curr) => acc + curr.amount, 0);
+      document.getElementById('stat-revenue').textContent = `₹${rev}`;
+
+      // Render Admin Table
+      const tbody = document.getElementById('admin-orders-tbody');
+      tbody.innerHTML = appOrders.map(o => `
+        <tr class="hover:bg-slate-50">
+          <td class="p-3 font-mono font-bold">${o.id}</td>
+          <td class="p-3">
+            <p class="font-bold text-slate-800">${o.name}</p>
+            <p class="text-slate-400 text-[11px]">${o.phone}</p>
+          </td>
+          <td class="p-3 max-w-xs">${o.items}</td>
+          <td class="p-3 font-bold text-brand">₹${o.amount}</td>
+          <td class="p-3">
+            <span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded text-[10px]">${o.status}</span>
+          </td>
+          <td class="p-3">
+            <select onchange="updateOrderStatus('${o.id}', this.value)" class="text-[11px] border rounded px-2 py-1">
+              <option value="Order Placed" ${o.status === 'Order Placed' ? 'selected' : ''}>Placed</option>
+              <option value="Picked Up" ${o.status === 'Picked Up' ? 'selected' : ''}>Picked Up</option>
+              <option value="In Cleaning" ${o.status === 'In Cleaning' ? 'selected' : ''}>In Cleaning</option>
+              <option value="Delivered" ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
+            </select>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function updateOrderStatus(ordId, newStatus) {
+      const ord = appOrders.find(o => o.id === ordId);
+      if (ord) {
+        ord.status = newStatus;
+        renderAdminDashboard();
+      }
+    }
+
+    function logoutAdmin() {
+      document.getElementById('admin-dashboard').classList.add('hidden');
+      document.getElementById('admin-login-card').classList.remove('hidden');
+    }
+
+    // --- INITIALIZATION ---
+    window.onload = function() {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      renderClothesCatalogue();
+      renderReviews();
+      
+      // Default Date selector to today
+      const dateInput = document.getElementById('cust-date');
+      if (dateInput) dateInput.value = new Date().toISOString().split('T')[0];
+    };
+  </script>
+</body>
+</html>
